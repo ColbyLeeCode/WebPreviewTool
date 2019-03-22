@@ -1,0 +1,31 @@
+﻿@using WebPreviewTool.ViewModel
+@using WebPreviewTool.Models
+@model MarkDisplayVM
+
+<link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+
+
+@{Html.RenderPartial("_CollectionsSideBar", new CollectionsInfo(Model.collections, Model.tags));}
+
+
+
+<div class="bookmarks">
+    <div class="SearchBar">
+        <input type="text" alt="submit" placeholder="S E A R C H" name="search" onsubmit="@Url.Action("Search", "Home")">
+    </div>
+    <h2>Everything</h2>
+    <div class="browser container-fluid">
+        @foreach (var bm in Model.bookmarks)
+        {
+            <a href='@Url.Action("SingleMark", "Home", new { id = bm.id })'>
+                <img src=@bm.imgLoc width="250" height="150" />
+            </a>
+        }
+
+    </div>
+</div>
+
+
+
+
+

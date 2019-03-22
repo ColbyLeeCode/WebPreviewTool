@@ -1,0 +1,80 @@
+﻿@using WebPreviewTool.ViewModel
+@using WebPreviewTool.Models
+@model SingleMarkVM
+
+
+@{Html.RenderPartial("_CollectionsSideBar", new CollectionsInfo(Model.Collections, Model.Tags));}
+
+<div class="SingleMarkWrapper">
+    <center>
+        <h3>@Model.Bm.url</h3>
+        <img src="@Model.Bm.imgLoc" height="600" width="800" />
+    </center>
+    
+    <div class="collection-tags-wrap">
+        <h3>Collections</h3>
+        <div class="collections-container container-fluid">
+            <button class="glyphicon glyphicon-plus" onclick="showInputField('collections-input')"></button>
+
+            @using (Html.BeginForm("CollectionsAdd", "Home", Model.Bm.id, FormMethod.Post))
+            {
+                <input name="collection" id="collection" class="collections-input" style="display:none" type="text" placeholder="add collection" />
+                <input name="id" id="id" type="hidden" value="@Model.Bm.id" />
+                <button type="submit">ADD</button>
+            }
+
+            @{          
+                foreach (var item in Model.Bm.collections)
+                {
+                    using (Html.BeginForm("CollectionsDelete", "Home", Model.Bm.id, FormMethod.Post))
+                    {
+
+                        <input name="collection" id="collection" type="hidden" value="@item" />        
+                        <input name="id" id="id" type="hidden" value="@Model.Bm.id" />
+                        <span class="badge badge-secondary">@item<button type="submit">X</button></span>
+                    }
+                }
+            }
+        </div> 
+        <h3>Tags</h3>
+        <div class="tags-container container-fluid">
+            <button class="glyphicon glyphicon-plus" onclick="showInputField('tags-input')"></button>
+
+            @using (Html.BeginForm("TagsAdd", "Home", Model.Bm.id, FormMethod.Post))
+            {
+                <input id="tag" name="tag" class="tags-input" type="text" style="display:none" placeholder="add tag" />
+                <input name="id" id="id" type="hidden" value="@Model.Bm.id" />
+                <button type="submit">ADD</button>
+            }
+
+            @{
+                foreach (var item in Model.Bm.tags)
+                {
+                    using (Html.BeginForm("TagsDelete", "Home", Model.Bm.id, FormMethod.Post))
+                    {
+                        <input name="tag" id="tag" type="hidden" value="@item" />
+                        <input name="id" id="id" type="hidden" value="@Model.Bm.id" />
+                        <span class="badge badge-secondary">@item<button type="submit">X</button></span>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    function showInputField(input) {
+        window.alert(input);
+        
+        if (document.getElementsByClassName(input)[0].style.display.includes("inline-flex")) {
+            console.log(document.getElementsByClassName(input)[0].value);
+            document.getElementsByClassName(input)[0].style.display = "none";
+            document.getElementsByClassName(input)[0].value = "";
+        }
+        else {
+            document.getElementsByClassName(input)[0].style.display = "inline-flex";
+        }
+
+    }
+
+</script>

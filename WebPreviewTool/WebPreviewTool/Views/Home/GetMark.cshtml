@@ -1,0 +1,36 @@
+﻿@using WebPreviewTool.ViewModel
+@model SingleMarkVM
+
+
+@{Html.RenderPartial("_CollectionsSideBar");}
+
+
+
+<div class="SingleMarkWrapper">
+    <center>
+        <h3>@Model.url</h3>
+        <img src="@Model.imgLoc" height="600" width="800" />
+    </center>
+
+    <div class="collection-tags-wrap">
+        <h3>Collections</h3>
+        <div class="collections-container container-fluid">
+            @{
+                foreach (var item in Model.collections)
+                {
+                    <span class="badge badge-secondary">@item</span>
+                }
+            }
+        </div>
+        <h3>Tags</h3>
+        <div class="tags-container container-fluid">
+
+            @{
+                foreach (var item in Model.tags)
+                {
+                    <span class="badge badge-secondary">@item</span>
+                }
+            }
+        </div>
+    </div>
+</div>

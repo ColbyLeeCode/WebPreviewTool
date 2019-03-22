@@ -1,0 +1,144 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color: #E5E5E5;
+    margin:0px;
+}
+
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+
+
+
+
+.zoom {
+    padding: 5px;
+    transition: transform .2s; /* Animation */
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+    .zoom:hover {
+        transform: scale(1.15); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+
+.custom-nav-bar .navbar {
+    background-color: #49C7ED;
+    border: none;
+}
+
+.custom-nav-bar .navbar-brand{
+    color:white;
+    font-weight:bold;
+}
+
+.custom-nav-bar .navbar-toggle {
+    border-color:white;
+}
+
+.custom-nav-bar .container{
+    margin-left:5px;
+    margin-right:5px;
+   display:inline;
+}
+
+a:hover{
+    font-weight:bold;
+}
+
+#sidebar-wrapper{
+    position:fixed;
+    background-color: white;
+    height: 100vw;
+    left:0;
+}
+
+.sidebar-nav{
+    list-style:none;
+    text-align:center;
+    margin:0px;
+    padding:5px;
+    padding-left:15px;
+    padding-right:15px;
+    font-size:large;  
+}
+
+.sidebar-nav a{
+    color:black;
+}
+
+    .sidebar-nav a:hover {
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+.body-content{
+    margin-left:25px;
+    width:98%;
+}
+
+.bookmarks img{
+    width:33%;
+    height:auto;
+}
+
+.bookmarks {
+    margin-left: 105px;
+    
+}
+
+.CurrentCollection{
+    padding-left: 20px;
+}
+
+
+
+.SingleMarkWrapper{
+    margin-top:15px;
+    
+    background-color:white;
+    margin-left:120px;
+}
+
+.collection-tags-wrap{
+    padding:15px;
+}
+
+.body-content footer{
+    text-align:center;
+}
+
+
+.SearchBar {
+    text-align: left;
+    margin-left: 20px;
+    padding-top:15px;
+    padding-bottom:30px;
+    
+}
+
+    .SearchBar input {
+        min-width: 100%;
+        height: 70px;
+        border: none;
+        color: #C0C0C0;
+        font-size: 25px;
+        font-weight: 600;
+        padding-left: 5px;
+        background-color: #F7F7F7;
+        border-radius: 3px;
+    }
+
+.tags-container{
+    display:flex;
+}
+
+
+
+
+
+
+
