@@ -100,12 +100,12 @@ namespace WebPreviewTool.Controllers
 
         public ActionResult SortedCollections(string collection)
         {
-            return View("MarkView", new MarkDisplayVM(GetBookmarks(collection: collection), GetCollections(), GetTags()));
+            return View("MarkView", new MarkDisplayVM(GetBookmarks(collection: collection), GetCollections(), GetTags(), collection));
         }
 
         public ActionResult SortedTags(string tag)
         {
-            return View("MarkView", new MarkDisplayVM(GetBookmarks(tag: tag), GetCollections(), GetTags()));
+            return View("MarkView", new MarkDisplayVM(GetBookmarks(tag: tag), GetCollections(), GetTags(), "Tag: " + tag));
         }
 
         public List<Bookmark> GetBookmarks(string collection = null, string tag = null)

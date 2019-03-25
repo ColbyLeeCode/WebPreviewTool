@@ -1,0 +1,34 @@
+﻿@using WebPreviewTool.Models
+@model CollectionsInfo
+
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li>
+                <h3>Collections</h3>
+                @{
+                    foreach (string collect in Model.Collections)
+                    {
+                    <a href='@Url.Action("SortedCollections", "Home", new { collection = collect })'>
+                        <li>@collect</li>
+                    </a>
+                }
+                }
+                </li>
+                <li>
+                    <h3>Tags</h3>
+                    @{
+                        foreach (string tag in Model.Tags)
+                        {
+                        <a href='@Url.Action("SortedTags", "Home", new { tag = tag })'>
+                            <li>@tag</li>
+                        </a>
+                        }
+                    }
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+        </div>
